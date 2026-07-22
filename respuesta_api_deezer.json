@@ -1,0 +1,115 @@
+{
+    "resultados": [
+        {
+            "album": "Starboy",
+            "artista": "The Weeknd",
+            "duracion": 230,
+            "id": 136889400,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/3/c/1/0/3c19a82aeffd2f6f6adb63c4d8548e06.mp3?hdnea=exp=1784695768~acl=/api/1/1/3/c/1/0/3c19a82aeffd2f6f6adb63c4d8548e06.mp3*~data=user_id=0,application_id=42~hmac=9e6b9bb16f512942ec4b0fb0a6c70556bacb18c67c2035742603edd96108ce88",
+            "titulo": "Starboy"
+        },
+        {
+            "album": "Starboy",
+            "artista": "The Weeknd",
+            "duracion": 269,
+            "id": 136889434,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/6/4/9/0/64964cf78e664f63594a3190e1e834eb.mp3?hdnea=exp=1784695768~acl=/api/1/1/6/4/9/0/64964cf78e664f63594a3190e1e834eb.mp3*~data=user_id=0,application_id=42~hmac=c2af6139ff4ac784cd4b74f0134baa18fbed632c0fab4c7dc31f8770ed51eae1",
+            "titulo": "I Feel It Coming"
+        },
+        {
+            "album": "Get Lucky (Radio Edit - feat. Pharrell Williams and Nile Rodgers)",
+            "artista": "Daft Punk",
+            "duracion": 248,
+            "id": 66609426,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/bc49adb87758e0c8c4e508a9c5cce85d/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/1/b/f/0/1bf80a82992903ff685ba1b7275223f8.mp3?hdnea=exp=1784695768~acl=/api/1/1/1/b/f/0/1bf80a82992903ff685ba1b7275223f8.mp3*~data=user_id=0,application_id=42~hmac=2bb34c9418ff224b8c154df6a8906633840429526443c361147c884865475e53",
+            "titulo": "Get Lucky (Radio Edit - feat. Pharrell Williams and Nile Rodgers)"
+        },
+        {
+            "album": "Random Access Memories",
+            "artista": "Daft Punk",
+            "duracion": 337,
+            "id": 67238732,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/d/6/b/0/d6bc80aadfa1d7625d59a6620f229371.mp3?hdnea=exp=1784695768~acl=/api/1/1/d/6/b/0/d6bc80aadfa1d7625d59a6620f229371.mp3*~data=user_id=0,application_id=42~hmac=f940f392a8217a7b4d1146bec054a4a25f2f214cf7c93e4a2e7de19d12f8d620",
+            "titulo": "Instant Crush (feat. Julian Casablancas)"
+        },
+        {
+            "album": "Discovery",
+            "artista": "Daft Punk",
+            "duracion": 320,
+            "id": 3135553,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/5718f7c81c27e0b2417e2a4c45224f8a/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/f/8/c/0/f8c5dc3837912dba37c9a1ab3170cc3f.mp3?hdnea=exp=1784695768~acl=/api/1/1/f/8/c/0/f8c5dc3837912dba37c9a1ab3170cc3f.mp3*~data=user_id=0,application_id=42~hmac=bb786259d36dd38f1fe0be1e48f00e2549d3ff87a3ffc5d8f3f9394e4775a88f",
+            "titulo": "One More Time"
+        },
+        {
+            "album": "Discovery",
+            "artista": "Daft Punk",
+            "duracion": 345,
+            "id": 3135563,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/5718f7c81c27e0b2417e2a4c45224f8a/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/6/4/5/0/6456b666c0b1d4537e34d71e5cbd098c.mp3?hdnea=exp=1784695768~acl=/api/1/1/6/4/5/0/6456b666c0b1d4537e34d71e5cbd098c.mp3*~data=user_id=0,application_id=42~hmac=9ac5f131bcc27e1684cc1b4f266a881fb8026f3636c95322026a2a785c866450",
+            "titulo": "Veridis Quo"
+        },
+        {
+            "album": "Random Access Memories",
+            "artista": "Daft Punk",
+            "duracion": 367,
+            "id": 67238735,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/c/8/a/0/c8a61130657a2cf58e3ac751e7950617.mp3?hdnea=exp=1784695768~acl=/api/1/1/c/8/a/0/c8a61130657a2cf58e3ac751e7950617.mp3*~data=user_id=0,application_id=42~hmac=b4cac2eb9f112746be48ad17791ad5ef0d1a11cd8d825223983f443626ec529d",
+            "titulo": "Get Lucky (feat. Pharrell Williams and Nile Rodgers)"
+        },
+        {
+            "album": "Homework",
+            "artista": "Daft Punk",
+            "duracion": 429,
+            "id": 3129775,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/b870579c8650cd59b1cce656dde2ef17/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/a/4/7/0/a47dbed01e6d9b0ac4e39a134f745ca2.mp3?hdnea=exp=1784695768~acl=/api/1/1/a/4/7/0/a47dbed01e6d9b0ac4e39a134f745ca2.mp3*~data=user_id=0,application_id=42~hmac=78d577f0567a958ff4fd796f88cf39756e1d4d00f46f29e7c6ba86a5bbb3e422",
+            "titulo": "Around the World"
+        },
+        {
+            "album": "Discovery",
+            "artista": "Daft Punk",
+            "duracion": 226,
+            "id": 3135556,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/5718f7c81c27e0b2417e2a4c45224f8a/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/6/a/2/0/6a2c0a5670afe821e08fc5154909534a.mp3?hdnea=exp=1784695768~acl=/api/1/1/6/a/2/0/6a2c0a5670afe821e08fc5154909534a.mp3*~data=user_id=0,application_id=42~hmac=f5ab6a5cc040a46d3d058eef4d365717ec003bd6d585d514f06c5be0769f1e89",
+            "titulo": "Harder, Better, Faster, Stronger"
+        },
+        {
+            "album": "Random Access Memories",
+            "artista": "Daft Punk",
+            "duracion": 353,
+            "id": 67238733,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/e/5/3/0/e53185570f71c51bf4903d1e78ed5348.mp3?hdnea=exp=1784695768~acl=/api/1/1/e/5/3/0/e53185570f71c51bf4903d1e78ed5348.mp3*~data=user_id=0,application_id=42~hmac=cd7e81ffaa4c970f9a03a478b1ad328ee93ad5d90004751b9446e57b39a950ce",
+            "titulo": "Lose Yourself to Dance (feat. Pharrell Williams)"
+        },
+        {
+            "album": "Random Access Memories",
+            "artista": "Daft Punk",
+            "duracion": 544,
+            "id": 67238730,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/311bba0fc112d15f72c8b5a65f0456c1/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/2/2/6/0/226a352b5354e78a964d5dad5875ded9.mp3?hdnea=exp=1784695768~acl=/api/1/1/2/2/6/0/226a352b5354e78a964d5dad5875ded9.mp3*~data=user_id=0,application_id=42~hmac=d4242b2e432d62e471beabe0fbd11f3ba07014baa8aa51a0e26d794ef6f4e904",
+            "titulo": "Giorgio by Moroder"
+        },
+        {
+            "album": "Homework",
+            "artista": "Daft Punk",
+            "duracion": 328,
+            "id": 3129772,
+            "portada": "https://cdn-images.dzcdn.net/images/cover/b870579c8650cd59b1cce656dde2ef17/250x250-000000-80-0-0.jpg",
+            "preview": "https://cdnt-preview.dzcdn.net/api/1/1/7/6/8/0/76889b34d1906099d7b365b8573e4ea7.mp3?hdnea=exp=1784695768~acl=/api/1/1/7/6/8/0/76889b34d1906099d7b365b8573e4ea7.mp3*~data=user_id=0,application_id=42~hmac=de818741824f853b4e2f6103cb3d07ca2acaddc4a6d672a875ec401bfd60ea39",
+            "titulo": "Da Funk"
+        }
+    ],
+    "termino": "daft punk",
+    "tipo": "canciones",
+    "total": 12
+}
