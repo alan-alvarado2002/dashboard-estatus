@@ -1,8 +1,9 @@
-name: CI/CD — Dashboard Deploy
+name: CI/CD — Dashboard Deploy (systemd, Practica 4)
 
+# Desactivado en push para no chocar con el workflow de Docker (Practica 5).
+# Queda ejecutable manualmente desde la pestaña Actions si se necesita.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -26,12 +27,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.SERVER_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Deploy en el servidor
         run: |
           ssh -i ~/.ssh/deploy_key \
               -o StrictHostKeyChecking=no \
+              -o UserKnownHostsFile=/dev/null \
               "${{ secrets.SERVER_USER }}"@"${{ secrets.SERVER_HOST }}" \
               '
               set -e
