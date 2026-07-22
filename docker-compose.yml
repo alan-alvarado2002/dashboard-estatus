@@ -1,0 +1,29 @@
+services:
+
+  # ── Servicio 1: la app Flask ───────────────────────────────
+  flask-app:
+    build: .
+    container_name: dashboard-app
+    restart: always
+    networks:
+      - red-interna
+    # No exponemos puerto al host — solo nginx puede hablar con él
+
+  # ── Servicio 2: nginx como proxy inverso ───────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: dashboard-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - flask-app
+    networks:
+      - red-interna
+
+# Red interna compartida entre los dos servicios
+networks:
+  red-interna:
+    driver: bridge
