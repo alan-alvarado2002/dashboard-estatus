@@ -1,8 +1,3 @@
-# Práctica 4 — CI/CD: Deploy Automático de un Dashboard de Estatus
-
-**Alumno:** José Gerardo Rangel Osornio — 202532953
-**Materia:** Automatización de Infraestructura Digital — IRC 9.1
-**Unidad:** III
 
 ## Descripción
 
