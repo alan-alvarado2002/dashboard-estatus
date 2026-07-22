@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard de Estatus</title>
+  <style>
+    body{font-family:monospace;background:#0f172a;color:#e2e8f0;padding:24px;margin:0}
+    h1{color:#02C39A;margin-bottom:4px}
+    #ts{color:#64748b;font-size:13px;margin-bottom:20px}
+    .resumen{display:flex;gap:16px;margin-bottom:24px}
+    .r-card{background:#1e293b;border-radius:8px;padding:14px 20px;text-align:center}
+    .r-num{font-size:28px;font-weight:700}.r-ok{color:#4ADE80}.r-err{color:#F87171}
+    .r-label{font-size:12px;color:#64748b}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .card{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #334155}
+    .card.ok{border-left-color:#4ADE80}.card.err{border-left-color:#F87171}
+    .c-name{font-weight:700;margin-bottom:4px}
+    .badge{display:inline-block;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:700}
+    .b-ok{background:#14532d;color:#4ADE80}.b-err{background:#7f1d1d;color:#F87171}
+    .c-detail{font-size:12px;color:#64748b;margin-top:6px}
+  </style>
+</head>
+<body>
+  <h1>📡 Dashboard de Estatus</h1>
+  <div id="ts">Cargando...</div>
+  <div class="resumen" id="resumen"></div>
+  <div class="grid" id="grid"></div>
+<script>
+async function actualizar() {
+  const d = await fetch('/api/estado').then(r => r.json());
+  document.getElementById('ts').textContent = `Última actualización: ${d.timestamp}`;
+  document.getElementById('resumen').innerHTML = `
+    <div class="r-card"><div class="r-num">${d.total}</div><div class="r-label">Total</div></div>
+    <div class="r-card"><div class="r-num r-ok">${d.activos}</div><div class="r-label">Activos</div></div>
+    <div class="r-card"><div class="r-num r-err">${d.caidos}</div><div class="r-label">Caídos</div></div>
+  `;
+  document.getElementById('grid').innerHTML = d.servicios.map(s => `
+    <div class="card ${s.activo ? 'ok' : 'err'}">
+      <div class="c-name">${s.nombre}</div>
+      <span class="badge ${s.activo ? 'b-ok' : 'b-err'}">${s.activo ? '✅ ACTIVO' : '❌ CAÍDO'}</span>
+      <div class="c-detail">HTTP ${s.status ?? 'N/A'} · ${s.latencia ?? '—'} ms</div>
+      <div class="c-detail">${s.error ?? s.url}</div>
+    </div>`).join('');
+}
+actualizar();
+setInterval(actualizar, 30000); // refresca cada 30 segundos
+</script>
+</body></html>
