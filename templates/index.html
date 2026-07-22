@@ -2,255 +2,58 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard de Estatus</title>
   <style>
-    :root{
-      --bg:#0f172a;
-      --panel:#1e293b;
-      --panel-2:#162032;
-      --text:#e2e8f0;
-      --muted:#94a3b8;
-      --accent:#10b981;
-      --accent-hi:#34d399;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --line:#334155;
-    }
-    *{box-sizing:border-box}
-    body{
-      font-family:"Cascadia Code",Consolas,Menlo,monospace;
-      background:var(--bg);
-      color:var(--text);
-      padding:24px;
-      margin:0;
-      line-height:1.5;
-    }
-    header{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      border-bottom:1px solid var(--line);
-      padding-bottom:16px;
-      margin-bottom:24px;
-    }
-    h1{
-      font-size:1.6rem;
-      margin:0;
-      letter-spacing:.5px;
-    }
-    h1 .tag{color:var(--accent)}
-    .estado{
-      font-size:.85rem;
-      color:var(--muted);
-    }
-    .estado #latido{color:var(--accent)}
-
-    /* Botón hacia el buscador de música */
-    .btn-deezer{
-      display:inline-block;
-      padding:12px 22px;
-      background:var(--accent);
-      color:#04231a;
-      font-weight:700;
-      font-family:inherit;
-      text-decoration:none;
-      border-radius:8px;
-      transition:background .2s ease, transform .2s ease;
-    }
-    .btn-deezer:hover{
-      background:var(--accent-hi);
-      transform:translateY(-2px);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-      margin-bottom:28px;
-    }
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:10px;
-      padding:18px;
-    }
-    .card .label{
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
-    .card .valor{
-      font-size:2rem;
-      font-weight:700;
-    }
-    .card .valor small{font-size:1rem;color:var(--muted)}
-
-    .barra{
-      margin-top:12px;
-      height:8px;
-      background:var(--panel-2);
-      border-radius:4px;
-      overflow:hidden;
-    }
-    .barra > span{
-      display:block;
-      height:100%;
-      width:0;
-      background:var(--accent);
-      transition:width .4s ease, background .4s ease;
-    }
-
-    section h2{
-      font-size:1.1rem;
-      margin:0 0 12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:10px;
-      overflow:hidden;
-    }
-    th,td{
-      text-align:left;
-      padding:10px 14px;
-      border-bottom:1px solid var(--line);
-    }
-    th{
-      background:var(--panel-2);
-      color:var(--muted);
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-    tr:last-child td{border-bottom:none}
-    td.cpu{font-weight:700}
-    .pid{color:var(--muted)}
-
-    footer{
-      margin-top:28px;
-      padding-top:16px;
-      border-top:1px solid var(--line);
-      font-size:.8rem;
-      color:var(--muted);
-    }
+    body{font-family:monospace;background:#0f172a;color:#e2e8f0;padding:24px;margin:0}
+    .top{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:16px}
+    h1{color:#02C39A;margin-bottom:4px}
+    #ts{color:#64748b;font-size:13px;margin-bottom:20px}
+    .resumen{display:flex;gap:16px;margin-bottom:24px}
+    .r-card{background:#1e293b;border-radius:8px;padding:14px 20px;text-align:center}
+    .r-num{font-size:28px;font-weight:700}.r-ok{color:#4ADE80}.r-err{color:#F87171}
+    .r-label{font-size:12px;color:#64748b}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .card{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #334155}
+    .card.ok{border-left-color:#4ADE80}.card.err{border-left-color:#F87171}
+    .c-name{font-weight:700;margin-bottom:4px}
+    .badge{display:inline-block;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:700}
+    .b-ok{background:#14532d;color:#4ADE80}.b-err{background:#7f1d1d;color:#F87171}
+    .c-detail{font-size:12px;color:#64748b;margin-top:6px}
+    /* Boton hacia el buscador de musica */
+    .btn-deezer{display:inline-block;padding:10px 20px;background:#02C39A;color:#03231c;
+      font-weight:700;font-family:inherit;text-decoration:none;border-radius:8px;
+      transition:background .2s ease, transform .2s ease;white-space:nowrap}
+    .btn-deezer:hover{background:#05e0b1;transform:translateY(-2px)}
   </style>
 </head>
 <body>
-
-  <header>
+  <div class="top">
     <div>
-      <h1>Dashboard de <span class="tag">Estatus</span></h1>
-      <div class="estado">
-        Actualización cada 3 s · <span id="latido">●</span>
-        <span id="hora">—</span>
-      </div>
+      <h1>📡 Dashboard de Estatus</h1>
+      <div id="ts">Cargando...</div>
     </div>
-    <a href="/deezer/" class="btn-deezer">🎵 Ir al buscador de música · Crate</a>
-  </header>
-
-  <div class="grid">
-    <div class="card">
-      <div class="label">Sistema operativo</div>
-      <div class="valor" id="os" style="font-size:1.4rem">—</div>
-    </div>
-    <div class="card">
-      <div class="label">Uso de CPU</div>
-      <div class="valor"><span id="cpu">0</span><small>%</small></div>
-      <div class="barra"><span id="barra-cpu"></span></div>
-    </div>
-    <div class="card">
-      <div class="label">Uso de memoria</div>
-      <div class="valor"><span id="memoria">0</span><small>%</small></div>
-      <div class="barra"><span id="barra-mem"></span></div>
-    </div>
+    <a href="/deezer/" class="btn-deezer">🎵 Buscador de música · Crate</a>
   </div>
-
-  <section>
-    <h2>Top procesos por CPU</h2>
-    <table>
-      <thead>
-        <tr><th>PID</th><th>Proceso</th><th>CPU</th></tr>
-      </thead>
-      <tbody id="procesos">
-        <tr><td colspan="3" style="color:var(--muted)">Cargando…</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <footer>
-    Panel de monitoreo del sistema · Emsam · datos vía <code>/datos</code>
-  </footer>
-
-  <script>
-    // Devuelve un color según el nivel de uso
-    function color(v){
-      if (v >= 85) return getComputedStyle(document.documentElement).getPropertyValue('--danger');
-      if (v >= 60) return getComputedStyle(document.documentElement).getPropertyValue('--warn');
-      return getComputedStyle(document.documentElement).getPropertyValue('--accent');
-    }
-
-    async function actualizar(){
-      try{
-        const r = await fetch('/datos', {cache:'no-store'});
-        if(!r.ok) throw new Error('HTTP ' + r.status);
-        const d = await r.json();
-
-        // Tarjetas
-        document.getElementById('os').textContent = d.os ?? '—';
-
-        const cpu = Number(d.cpu ?? 0);
-        const mem = Number(d.memoria ?? 0);
-        document.getElementById('cpu').textContent = cpu;
-        document.getElementById('memoria').textContent = mem;
-
-        const bc = document.getElementById('barra-cpu');
-        bc.style.width = Math.min(cpu,100) + '%';
-        bc.style.background = color(cpu);
-
-        const bm = document.getElementById('barra-mem');
-        bm.style.width = Math.min(mem,100) + '%';
-        bm.style.background = color(mem);
-
-        // Tabla de procesos
-        const tbody = document.getElementById('procesos');
-        const procs = Array.isArray(d.procesos) ? d.procesos : [];
-        if(procs.length === 0){
-          tbody.innerHTML = '<tr><td colspan="3" style="color:var(--muted)">Sin datos</td></tr>';
-        } else {
-          tbody.innerHTML = procs.map(p => `
-            <tr>
-              <td class="pid">${p.pid ?? ''}</td>
-              <td>${p.name ?? ''}</td>
-              <td class="cpu">${(p.cpu_percent ?? 0)}%</td>
-            </tr>`).join('');
-        }
-
-        // Marca de tiempo + latido
-        document.getElementById('hora').textContent = new Date().toLocaleTimeString();
-        const latido = document.getElementById('latido');
-        latido.style.opacity = '0.3';
-        setTimeout(() => latido.style.opacity = '1', 150);
-
-      }catch(e){
-        document.getElementById('hora').textContent = 'error: ' + e.message;
-        document.getElementById('latido').style.color =
-          getComputedStyle(document.documentElement).getPropertyValue('--danger');
-      }
-    }
-
-    actualizar();
-    setInterval(actualizar, 3000);
-  </script>
-
-</body>
-</html>
+  <div class="resumen" id="resumen"></div>
+  <div class="grid" id="grid"></div>
+<script>
+async function actualizar() {
+  const d = await fetch('/api/estado').then(r => r.json());
+  document.getElementById('ts').textContent = `Última actualización: ${d.timestamp}`;
+  document.getElementById('resumen').innerHTML = `
+    <div class="r-card"><div class="r-num">${d.total}</div><div class="r-label">Total</div></div>
+    <div class="r-card"><div class="r-num r-ok">${d.activos}</div><div class="r-label">Activos</div></div>
+    <div class="r-card"><div class="r-num r-err">${d.caidos}</div><div class="r-label">Caídos</div></div>
+  `;
+  document.getElementById('grid').innerHTML = d.servicios.map(s => `
+    <div class="card ${s.activo ? 'ok' : 'err'}">
+      <div class="c-name">${s.nombre}</div>
+      <span class="badge ${s.activo ? 'b-ok' : 'b-err'}">${s.activo ? '✅ ACTIVO' : '❌ CAÍDO'}</span>
+      <div class="c-detail">HTTP ${s.status ?? 'N/A'} · ${s.latencia ?? '—'} ms</div>
+      <div class="c-detail">${s.error ?? s.url}</div>
+    </div>`).join('');
+}
+actualizar();
+setInterval(actualizar, 30000); // refresca cada 30 segundos
+</script>
+</body></html>
