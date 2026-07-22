@@ -1,0 +1,15 @@
+[Unit]
+Description=Dashboard de Estatus API
+After=network.target
+
+[Service]
+User=deploy
+WorkingDirectory=/opt/dashboard
+ExecStart=/opt/dashboard/venv/bin/gunicorn -w 2 -b 0.0.0.0:5000 app:app
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
