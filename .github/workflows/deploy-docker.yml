@@ -1,0 +1,45 @@
+name: CI/CD — Docker Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # ── JOB 1: pruebas ─────────────────────────────────────────
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar y probar
+        run: |
+          pip install -r requirements.txt
+          python -m unittest test_app.py -v
+
+  # ── JOB 2: build Docker + deploy ───────────────────────────
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configurar llave SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Deploy con Docker Compose
+        run: |
+          ssh -i ~/.ssh/deploy_key \
+              -o StrictHostKeyChecking=no \
+              -o UserKnownHostsFile=/dev/null \
+              "${{ secrets.SERVER_USER }}"@"${{ secrets.SERVER_HOST }}" \
+              '
+              set -e
+              cd /opt/dashboard
+              git pull origin main
+              docker compose up --build -d
+              docker image prune -f
+              echo "Deploy Docker completado: $(date)"
+              '
